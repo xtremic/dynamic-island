@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14pm</title>
+    
+    <style>
+        body{
+            margin: 0;
+        }
+        #main{
+            display: flex;
+            place-content: center;
+            align-self: center;
+            
+            
+           
+        }
+        #phone{
+            width: 310px;
+            height: 600px;
+            border: 4px  solid black;
+            margin: 20px;
+            border-radius: 20px;
+            justify-content: center;
+            display: flex;
+            margin-top: 100px;
+
+            
+        }
+
+        #pill{
+            width: 100px;
+            height: 30px;
+            background-color: black;
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: 500ms;
+            display: flex;
+            flex-direction: column;
+
+            
+            
+        }
+        #camera{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1px;
+            margin: 10px;
+            margin-left: 75px;
+            z-index: 1;
+            
+            transition: 700ms;
+            
+            
+            
+            
+            
+        }
+        @keyframes moveup {
+            0%{}
+            100%{
+                height: 10px;
+
+            }
+            
+        }
+
+        @keyframes movedown {
+            0%{}
+            100%{
+                height: 5px;
+
+            }
+            
+        }
+
+        .lines{
+            width: 2px;
+            height: 10px;
+            background-color: purple;
+           
+
+           
+
+        }
+       
+
+        
+
+
+
+        .lines:nth-child(2){
+            height: 5px;
+            
+        }
+
+        .lines:nth-child(4){
+            height: 5px;
+            
+
+        }
+
+        
+        .lines:nth-child(6){
+            height: 5px;
+            
+
+        }
+       
+
+        .lines:nth-child(8){
+            height: 5px;
+            display: none;
+            
+
+        }
+
+
+        
+        .lines:nth-child(9){
+            height:10px;
+            display: none;
+            
+
+           
+        }
+
+        .lines{
+            transition: 500ms;
+        }
+
+        #logo{
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            
+            padding: 0;
+            margin: 8px;
+            position: fixed;
+            transition: 500ms;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #apple{
+            width: 100%;
+            border-radius: 100%;
+
+        }
+
+        #box{
+            display: none;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 280px;
+            position: absolute;
+            
+            
+            
+            
+        }
+
+        #line{
+            width: 150px;
+            height: 1px;
+            background-color:white;
+            transition: 500ms;
+            display: flex;
+            align-items: center;
+        }
+
+        #seek{
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: white;
+        }
+
+        h1{
+            color:white;
+            font-size: 12px;
+            font-weight: lighter;
+            font-family:  'Lucida Sans Unicode';
+        }
+
+        #controls{
+            display: none;
+            
+            flex-direction: row;
+            position: fixed;
+            justify-content: center;
+            width: 280px;
+            margin-top: 105px;
+            z-index: 1;
+           
+            
+            
+            padding: 0;
+            
+            
+            
+
+        }
+
+        .btn{
+            
+            display: flex;
+            cursor: pointer;
+
+        }
+
+        img{
+            width: 90%;
+            transition: 500ms;
+        }
+        #label{
+            display: none;
+            flex-direction: column;
+            margin-left: 86px;
+            margin-top: 20px;
+            position: absolute;
+            
+            
+            
+            
+        }
+        #song_name{
+            margin: 0;
+            font-family: Tahoma;
+            max-width: 120px;
+            
+        }
+        #artist{
+            margin: 0;
+            margin-top: 2px;
+            font-size: 10px;
+            font-family: Tahoma;
+
+        }
+
+        
+        
+    
+
+    </style>
+
+    <script>
+        var isopen = false
+        
+        function expand(event){
+            
+            var parent = event.srcElement
+            var pill = document.getElementById('pill')
+
+            if(parent === pill){
+                if(isopen === false){
+                var pill = document.getElementById('pill')
+                pill.style.width = "280px"
+                pill.style.borderRadius = "30px"
+                pill.style.height = "160px"
+                // dess
+                var beat = document.getElementById('camera')
+                beat.style.marginLeft = "200px"
+                beat.style.marginTop = "7%"
+                var lines = document.getElementsByClassName('lines');
+                lines[7].style.display = "block"
+                lines[8].style.display = "block"
+                // logo
+
+                var logo = document.getElementById('logo')
+                logo.style.borderRadius = "10px"
+                logo.style.width = "50px"
+                logo.style.height = "50px"
+                logo.style.marginLeft = "20px"
+                logo.style.marginTop = "14px"
+
+                var apple = document.getElementById('apple')
+                apple.style.borderRadius = "10px"
+
+                //create
+                setTimeout(() => {
+                    var box = document.getElementById('box');
+                box.style.display = "flex"
+                box.style.marginTop= "80px"
+                var controls = document.getElementById('controls')
+                controls.style.display = "flex"
+
+                // label
+                var label = document.getElementById('label')
+                label.style.display = "flex"
+                
+
+
+
+                    
+                }, 200);
+            
+                isopen = true
+            }
+            else if(isopen === true){
+                var pill = document.getElementById('pill')
+
+                pill.style.width = ""
+                pill.style.borderRadius = ""
+                pill.style.height = ""
+                // dess
+                var beat = document.getElementById('camera')
+                beat.style.marginLeft = ""
+                beat.style.marginTop = ""
+                var lines = document.getElementsByClassName('lines');
+                lines[7].style.display = "none"
+                lines[8].style.display = "none"
+                //logo
+
+                var logo = document.getElementById('logo')
+                logo.style.borderRadius = "10px"
+                logo.style.width = ""
+                logo.style.height = ""
+                logo.style.marginLeft = ""
+                logo.style.marginTop = ""
+
+                //create
+
+                var box = document.getElementById('box');
+                box.style.display = "none"
+                var controls = document.getElementById('controls')
+                controls.style.display = "none"
+
+
+                 // label
+                 var label = document.getElementById('label')
+                label.style.display = "none"
+
+       
+                
+                isopen = false
+                
+            }
+
+            }
+  
+        }
+
+        var isplay = false
+
+ 
+        function play(){
+            
+            if(isplay === false){
+            var play = document.getElementsByTagName('img')[2]
+
+                play.setAttribute("src", "baseline_pause_white_24dp.png")
+                var lines = document.getElementsByClassName('lines')
+                lines[0].style.animation = "movedown 500ms infinite"
+                lines[1].style.animation = "moveup 500ms infinite"
+                lines[2].style.animation = "moveup 500ms infinite"
+                lines[3].style.animation = "moveup 500ms infinite"
+                lines[5].style.animation = "moveup 500ms infinite"
+                lines[6].style.animation = "movedown 500ms infinite"
+                lines[8].style.animation = "movedown 500ms infinite"
+                isplay = true
+
+            }else{
+            var play = document.getElementsByTagName('img')[2]
+                play.setAttribute("src", "baseline_play_arrow_white_24dp.png")
+                var lines = document.getElementsByClassName('lines')
+                lines[0].style.animation = ""
+                lines[1].style.animation = ""
+                lines[2].style.animation = ""
+                lines[3].style.animation = ""
+                lines[5].style.animation = ""
+                lines[6].style.animation = ""
+                lines[8].style.animation = ""
+                isplay = false
+                
+            }
+            
+
+            
+
+        }
+
+       
+            
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="phone">
+            <div id="pill" onclick="expand(event)">
+                <div id="camera">
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                </div>
+                <div id="logo">
+                    <img src="./apple.png" alt="" id="apple">
+                </div>
+                <div id="label">
+                    <h1 id="song_name">Apple music</h1>
+                    <h1 id="artist">Itunes</h1>
+                </div>
+                <div id="box">
+                    <h1>0:00</h1>
+                    <div id="line">
+                        <div id="seek"></div>
+                    </div>
+                    <h1>3:00</h1>
+                </div>
+                <div id="controls">
+                    <div class="btn">
+                        <img src="./baseline_fast_rewind_white_24dp.png" alt="">
+                    </div>
+                    <div class="btn" onclick="play()">
+                        <img src="./baseline_play_arrow_white_24dp.png" alt="">
+                    </div>
+                    <div class="btn">
+                        <img src="./baseline_fast_forward_white_24dp.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
